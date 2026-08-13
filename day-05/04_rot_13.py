@@ -1,0 +1,30 @@
+"""
+## **EXERCISE: The ROT-13 Algorithm**
+
+**OBJECTIVE:** Given some message (string) to encode, we want to design a function that changes every letter in the string to the letter that is `13` positions forward in the English alphabet.
+
+**INPUT:** `"hello there"`
+
+**OUTPUT:** `"uryyb gurer"`
+
+---
+"""
+
+def rot_13():
+    pass
+
+
+"""
+## **BONUS: The ROT-N Algorithm**
+
+**OBJECTIVE:** Given some message (a string) to encode, construct a class with the ability to apply a ROT substitution transformation to encrypt (or decrypt) the message with degree `N`.
+
+**INPUT:** `"hello there"`, `13`
+
+**OUTPUT:** `"uryyb gurer"`
+
+---
+"""
+
+def rot_n():
+    pass
