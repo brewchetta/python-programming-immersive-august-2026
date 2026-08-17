@@ -228,7 +228,89 @@ exponential(3,3)
 
 # Lists #
 
+# data structure - holds other data
+
+grocery_list = [
+    "lettucebread",     # 0
+    "sandwich meat",    # 1
+    "sauce"             # 2
+]
+
+prices = [ 4.99, 3.50, 29.99, 6.00 ]
+        #   0     1     2      3
+        #  -4    -3    -2     -1
+
+mixed_data = [ True, "hello", 67 ]
+mixed_data[1] # "hello"
+mixed_data[0] # True
+mixed_data[2] # 67
+
+nested_lists = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+
+# accessing info
+prices[2] # 29.99
+
+nested_lists[0][0] # get the first list inside the first list
+
+# set information
+prices[2] = 30.99
+# [ 4.99, 3.50, 30.99, 6.00 ]
+
+prices.append(10.99)
+# .append() is a method --> special function which acts upon or with or through prices
+
+# .append() adds a new price and is destructive (it alters the list)
+
+# two types of methods:
+# 1. non-destructive    --> don't change the list
+# 2. destructive        --> changes the OG list
+
+prices.pop() # remove the last item
+prices.pop(1) # remove an item from the list by index (in this case the second item [1])
+
+
+# looping / iteration - going through and doing something for each item in a list
+
+
+# len() sees how many items are inside of the list
+len( grocery_list ) # 3
+len( nested_lists ) # 3
+len( nested_lists[0] ) # 3
+len( nested_lists[0] ) + len( nested_lists[1] ) + len( nested_lists[2] ) # 9
+
 
 # Dictionaries #
 
+# unordered data structure --> we track items using keys
+# key / value pairs
 
+person = {
+    # key    value
+    "name": "Chett",
+    "age": 21,
+    "ready_for_cake": True,
+    "address": {
+        "street": "123 Streetway View",
+        "zip": 12345,
+        "city": "New York City",
+        "state": "Oklahoma"
+    }
+}
+
+person["name"] # "Chett"
+person["age"] # 21
+
+person["name"] = "Dwayne"
+person["age"] += 1 # 22
+
+person["address"] # {"street": "123 Streetway View","zip": 12345,"city": "New York City","state": "Oklahoma"}
+person["address"]["state"] # "Oklahoma"
+person["address"]["state"] = "New York"
+
+# person["number_of_cats"] # KeyError
+person["number_of_cats"] = 2
+person["number_of_cats"] # 2
