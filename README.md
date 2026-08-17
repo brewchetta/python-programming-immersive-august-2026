@@ -1,5 +1,8 @@
 # Python Programming Immersive
 
+<!-- ## IDE - integrated development environment -->
+<!-- for code - write / edit -->
+
 ## Using VSCode
 
 If you don't already have VS Code you may install it via their download link:
