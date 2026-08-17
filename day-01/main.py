@@ -314,3 +314,15 @@ person["address"]["state"] = "New York"
 # person["number_of_cats"] # KeyError
 person["number_of_cats"] = 2
 person["number_of_cats"] # 2
+
+pokemon_team = { 
+    "snorlax": "A big sleepy cat", 
+    "pikachu": "An electric rat boogie woogie", 
+    "randomon": "A very random pokeman" 
+}
+
+pokemon_team["snorlax"]
+# pokemon_team["charmeleon"] # key error
+
+pokemon_team.get("snorlax")
+pokemon_team.get("charmeleon") # None

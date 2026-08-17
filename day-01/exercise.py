@@ -2,6 +2,7 @@
 
 Let's imagine you're going out to eat at your favorite pizza joint; you ordered a slice-of-pizza and now you want to calculate the bill... using Python.
 
+
 #### **Prompt.**
 
 **OBJECTIVE:** Given a starting meal price and a tipping quantity (in dollars) as well as a constant tax rate, write a function that calculates and returns the total bill on your meal.
@@ -33,6 +34,7 @@ _"I need to calculate a final bill... what goes into that calculation?"_
 
 _"The bill will be a representative combination (the sum) of all three values."_
 
+
 #### **Process Design.**
 
 #### _The process design almost always leans on your **domain understanding**._
@@ -63,11 +65,13 @@ function that calculates bill (food price, amount in tips)
 #### **Coding Implementation.**
 """
 
+# 1. pseudo coding
+# 2. start at the beginning and the end - work your way towards the middle
+# 3. test as you go
 def calculate_bill(food_price, amount_in_tips):
-  tax_rate = 0.0875
-  amount_in_taxes = tax_rate * food_price
-  total_bill = food_price + amount_in_tips + amount_in_taxes
-  return total_bill
+  total_with_tax = food_price + (food_price * 0.0875)
+  total_with_tip_and_tax = total_with_tax + amount_in_tips
+  return total_with_tip_and_tax
 
 """#### **Testing.**"""
 
@@ -84,11 +88,46 @@ calculate_bill(food_price=100, amount_in_tips=0)
 
 1. Change the function so that _tax rate_ is a functional argument/variable.
 
+"""
+
+# default argument --> will use the default if none is given
+def calculate_bill(food_price, amount_in_tips, tax_rate=0.0875):
+  total_with_tax = food_price + (food_price * tax_rate)
+  total_with_tip_and_tax = total_with_tax + amount_in_tips
+  return total_with_tip_and_tax
+
+# using a specific tax rate
+calculate_bill(10, 10, 0.02)
+# using the default argument of 0.0875
+calculate_bill(10, 10)
+
+
+def with_complicated_default_arg(person={"name": "Chett", "age": 21}):
+  pass
+
+"""
 2. Modify the tip calculation so that instead of taking _tip as a quantity_, the function takes in a **tipping rate**.
   - **ASSUME:** When we calculate the tip based on percentage, we do it using the _pre-tax price_.
+"""
 
+def calculate_bill(food_price, tipping_rate=0.18, tax_rate=0.0875):
+  total_with_tax = food_price + (food_price * tax_rate)
+  amount_in_tips = food_price * tipping_rate # calculate amount in tips
+  total_with_tip_and_tax = total_with_tax + amount_in_tips
+  return total_with_tip_and_tax
+
+"""
 3. Round the final bill quantity to _two significant digits_ representing dollars and cents.
+"""
 
+def calculate_bill(food_price, tipping_rate=0.18, tax_rate=0.0875):
+  total_with_tax = food_price + (food_price * tax_rate)
+  amount_in_tips = food_price * tipping_rate
+  total_with_tip_and_tax = total_with_tax + amount_in_tips
+  rounded_total = round(total_with_tip_and_tax, 2) # round the number
+  return rounded_total
+
+"""
 4. Convert `food_price` to `food_prices`, which will now represent one-to-many individual prices. The function should then immediately add up all prices into one **sum** before calculating tax or tips.
 
 - 4.5. Update the function such that `food_prices` is now a collection of each menu item and its associated price.
