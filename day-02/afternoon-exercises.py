@@ -77,3 +77,4 @@ def halfway_there( items:list ):
     if (len( items ) > 1):
         halfway_index = int( len( items ) / 2 )
         items.insert(halfway_index, "HALFWAY")
+    return items

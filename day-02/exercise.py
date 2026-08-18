@@ -11,33 +11,48 @@ If breakeven occurred, add key-value pairs where `net_positive = False` and `net
 Finally, enable the function to accept a boolean keyword argument called `subset_expenses`. If `True`, instead of returning the entire dictionary, return two lists of the net positive and net negative expenses.
 """
 
+
+
 # Example expense report data.
 current_expense_report = [
     {"name": "headphones", "total_cost": 4500, "total_revenue": 9000},
     {"name": "smartwatches", "total_cost": 2000, "total_revenue": 3990},
     {"name": "laptops", "total_cost": 50000, "total_revenue": 47500},
-    {"name": "desktops", "total_cost": 77000, "total_revenue": 101400}
+    {"name": "desktops", "total_cost": 77000, "total_revenue": 101400},
+    {"name": "robot dog", "total_cost": 10000, "total_revenue": 10000},
 ]
 
-"""#### **Pseudocode.**
 
-```
-function to track expenses (expense report, boolean to subset)
-  look over all expenses
-    calculate net gain or loss
-    by default, assume neither gain nor loss
-    if gain, set gained status to true
-    if loss, set loss status to true
-    add gain and loss statuses to each expense in report
-  if boolean to subset is true...
-    split expenses into profits and losses using tracked statuses and send out
-  otherwise, send current data out
-```
-
-#### **Coding Implementation.**
-"""
 
 # Function to track expenses with report and boolean-to-subset.
 def track_expenses(expenses, subset_expenses=False):
-  # TODO: Implement your code here!
-  return
+  subset_items = {
+    "net_positives": [],
+    "net_negatives": []
+  }
+
+  # begin for loop
+  for item in expenses:
+    item_revenue = item["total_revenue"]
+    item_cost = item["total_cost"]
+
+    if (item_revenue - item_cost > 0):
+      item["net_positive"] = True
+    else:
+      item["net_positive"] = False
+
+    if (item_revenue - item_cost < 0):
+      item["net_negative"] = True
+    else:
+      item["net_negative"] = False
+
+    if (item_revenue - item_cost > 0 and subset_expenses):
+      subset_items["net_positives"].append( item )
+    elif (item_revenue - item_cost < 0 and subset_expenses):
+      subset_items["net_negatives"].append( item )
+  # end for loop
+
+  if (subset_expenses):
+    return subset_items
+  else:
+    return expenses
