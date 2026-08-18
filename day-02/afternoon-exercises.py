@@ -5,7 +5,7 @@
 """
 
 def is_it_cake( string:str ):
-    pass
+    return string.lower().replace(" ", "") == "cake"
 
 
 
@@ -14,8 +14,21 @@ def is_it_cake( string:str ):
 	Return all of those numbers averaged together. Begin by using a `for` loop or a `while` loop to add all the numbers together.
 """
 
+numbers = [1,2,3,4,5]
+numbers_two = [0,4,28,6]
+
 def get_average( list_of_numbers:list ):
-    pass
+    # add numbers
+    total = 0
+    for number in list_of_numbers:
+        total += number
+
+    # divide by number of numbers
+    number_of_items = len( list_of_numbers )
+
+    average = total / number_of_items
+
+    return average
 
 
 
@@ -27,19 +40,26 @@ def get_average( list_of_numbers:list ):
 """
 
 def open_thieves_cave( passphrase:str ):
-    pass
+    return passphrase == "open sesame"
 
 
 
 """
 4. Define a new function fungus_among_us() which accepts a list `plants` as an argument
-    return True if the function contains the string "fungus" and False if not
+    return True if the list contains the string "fungus" and False if not
     don't overthink this one, there's a very simple method to doing it...
     Example: fungus_among_us( ["tree", "flower", "fungus", "moss"] ) >>> True
 """
 
+plants = ["tree", "flower", "fungus", "moss"]
+plants_two = ["tree", "flower", "moss"]
+
 def fungus_among_us( plants:list ):
-    pass
+    for plant in plants:
+        if (plant == "fungus"):
+            return True
+
+    return False
 
 
 
@@ -50,5 +70,10 @@ def fungus_among_us( plants:list ):
     Example: halfway_there( [1,2,3,4,5,6] ) >>> [1,2,3,"HALFWAY",4,5,6]
 """
 
+random_items = ["chair", "table", "drawer", "spoon"]
+#                0        1        2         3
+
 def halfway_there( items:list ):
-    pass
+    if (len( items ) > 1):
+        halfway_index = int( len( items ) / 2 )
+        items.insert(halfway_index, "HALFWAY")
