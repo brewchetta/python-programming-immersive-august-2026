@@ -45,6 +45,8 @@ class Car:
     def __repr__(self):
         return f"Car(make={self.make}, model={self.model})"
 
+# END CAR CLASS ###########################################
+
 
 f40 = Car("Ferrari", "F40")
 taurus = Car("Ford", "Taurus")
@@ -53,26 +55,15 @@ delorean = Car("DMC","Delorean")
 
 # Car is the class
 # f40 / taurus / thunderbird are the instances
-        
 
 
+# go into 'classes' and 'robot.py'
+# get the 'Robot' class
+from classes.robot import Robot
+# this isn't just for classes, you can technically get anything from another file
+from classes.robot import all_robots
+
+r2d2 = Robot(name="R2D2", hardware=["wheels", "tools"], software=["beeping stuff"])
 
 
-# Instances vs Classes #
-
-
-# Class Instance Attributes #
-
-
-# Instance Methods #
-
-
-# Self #
-
-
-# Class Attributes #
-
-
-# Class Methods #
-
-
+from classes.cat import Cat, octavia, ursula
