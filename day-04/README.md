@@ -2,6 +2,7 @@
 
 ## Topics
 
+- Class Inheritance
 - Utilizing Python sets
 - Utilizing Python tuples
 - Building list comprehensions with collections
