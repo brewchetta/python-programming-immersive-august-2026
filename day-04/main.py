@@ -43,8 +43,36 @@ ursula = Cat("Ursula")
 
 # Sets #
 
+# a set does not allow for duplicate entries
+my_set = {1,2,2,2,2,2,3} # {1,2,3}
+my_list = [1,2,2,2,2,2,2,3] # [1,2,2,2,2,2,2,3]
+
+# we can use this to remove any duplicates from a list and then reconvert it into a list
+def remove_duplicates(l:list):
+    return list(set(l))
 
 # Tuples #
+# it's pronounced tuh-ple
+# a tuple is like a list however it cannot be changed, we cannot reassign the elements, we can not append or remove data, etc.
+
+my_list = [1,2,3]
+my_tuple = (1,2,3)
+
+# my_tuple.append(4) # will throw an error!
+# my_tuple[0] = 5 # will throw an error
+
+# even if you only have 1 item you must STILL USE A COMMA
+my_tuple = (1,)
+
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+# LUNCH UNTIL 2:05 EST
+
 
 
 # List Comprehension #
