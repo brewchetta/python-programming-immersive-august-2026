@@ -64,27 +64,96 @@ my_tuple = (1,2,3)
 # even if you only have 1 item you must STILL USE A COMMA
 my_tuple = (1,)
 
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-# LUNCH UNTIL 2:05 EST
-
-
 
 # List Comprehension #
+
+my_list = [1,2,3]
+
+new_list = [ num + 1 for num in my_list ]
+
+# list comprehension creates a new list
+my_list # [1,2,3]
+new_list # [2,3,4]
+
+# list comprehension can be used for any iterable
+my_tuple = (2,4,6)
+new_list = [ num * 2 for num in my_tuple ]
+# [4, 8, 12]
+
+# it can even be used for a range
+# a range is all the numbers between 0 (or another number) and an upper limit
+range(100) # all the numbers up to 99
+range(50,100) # all the numbers from 50 to 99
+
+squares = [ num ** 2 for num in range(1,100) ]
+# creates a list of squares for 1-99
+
+# filtering using list comprehension:
+
+# all odd numbers 1-9
+odds = [ num for num in range(1,10) if num % 2 == 1 ]
+# all even numbers 1-9
+evens = [ num for num in range(1,10) if num % 2 == 0 ]
+
+# you can both filter and create a product:
+
+odd_squares = [ num ** 2 for num in range(1,10) if num % 2 == 1 ]
+
 
 
 # Lambda Functions #
 
+def normal_function(name):
+    return f"Greetings {name}"
 
-# Libraries & Modules #
+normal_function("Jimothy") # "Greetings Jimothy"
+
+lambda_function = lambda name: f"Greetings {name}"
+lambda_function("Jimothy") # "Greetings Jimothy"
+
+add = lambda x,y: x + y
+add(1,2) # 3
 
 
 # Requests Library #
+
+# CRUD - CREATE READ UPDATE DELETE
+
+# GET - read info from the server
+# POST - create new info in the server
+# PUT/PATCH - update info in the server
+# DELETE - delete info in the server
+
+import requests
+
+# requests makes a http request to the server
+response = requests('https://ecommerce-backend-api-dusky.vercel.app/api/products')
+
+# check that we get a 200 OK status
+if (response.status_code == 200):
+
+    # .json() parses the data into a dictionary or list so that we can look at it in python
+    data = response.json()
+    print( data["message"] ) # "Products retrieved successfully"
+
+    # pull out the products data
+    products = data["products"]
+
+    products[0] # first product
+    products[0]["name"] # the name of the first product
+    data["products"][0]["name"] # the same thing but without our nice `products` variable
+
+    all_names = [ prod["name"] for prod in products ]
+    all_electronic_names = [ 
+        prod["name"] 
+        for prod 
+        in products 
+        if prod["category"] == "Electronics"
+    ]
+
+# if we don't get a 200 we let the user know
+else:
+    print("Unable to fetch from server")
 
 
 # Executables #
