@@ -143,7 +143,10 @@ if (response.status_code == 200):
     products[0]["name"] # the name of the first product
     data["products"][0]["name"] # the same thing but without our nice `products` variable
 
+    # use list comprehension to see all the names
     all_names = [ prod["name"] for prod in products ]
+
+    # use list comprehension to see all the names for only electronics
     all_electronic_names = [ 
         prod["name"] 
         for prod 
@@ -157,5 +160,3 @@ else:
 
 
 # Executables #
-
-
