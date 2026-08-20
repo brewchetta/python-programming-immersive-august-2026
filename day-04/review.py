@@ -17,5 +17,77 @@
 # Create a class method `review_bomb()` which accepts a `movie_title` and `num_reviews`. This generates a review `num_reviews` times for the `movie_title` each with a `score` of 1, a `reviewer_name` of `Statler & Waldorf`, and a `date_reviewed` of today. Return all instances in a list.
 	# Example: `MovieReview.review_bomb("Plan 9 From Outer Space", 10)` >>> creates 10 reviews for "Plan 9 From Outer Space"
 
+
+import datetime
+
 class MovieReview:
-    pass
+
+	def __init__(self, movie_title, reviewer_name, score, date_reviewed):
+		self.movie_title = movie_title
+		self.reviewer_name = reviewer_name
+		self.score = score
+		self.date_reviewed = date_reviewed
+
+	def formatted_date(self):
+		return self.date_reviewed.strftime('%b %d %Y')
+
+	def __repr__(self):
+		return f"MovieReview(movie_title='{self.movie_title}', reviewer_name='{self.reviewer_name}', score={self.score}, date_reviewed={self.formatted_date()})"
+
+	def pretty_print(self):
+		return f"{self.movie_title} review by {self.reviewer_name} on {self.formatted_date()}: {self.score} / 5 stars"
+
+	def increase_score(self):
+		if (self.score <= 4):
+			self.score += 1
+		else:
+			self.score = 5
+
+	def update_review(self, new_score, new_reviewer=None):
+		# set the score
+		self.score = new_score
+		# set new_reviewer if exists
+		if (new_reviewer):
+			self.reviewer_name = new_reviewer
+		# set date to now
+		self.date_reviewed = datetime.datetime.now()
+
+	@classmethod # class method decorator
+	def review_bomb(self, movie_title, num_reviews):
+		counter = 0
+		new_reviews = []
+		while counter < num_reviews:
+			new_rev = MovieReview(
+				movie_title=movie_title, 
+				score=1,
+				date_reviewed=datetime.datetime.now(),
+				reviewer_name="Statler & Waldorf"
+			)
+			new_reviews.append( new_rev )
+			counter += 1
+		return new_reviews
+
+
+spiderman = MovieReview(
+	movie_title="Spiderman: Brand New Day", 
+	reviewer_name="Chett", 
+	score=4, 
+	date_reviewed=datetime.datetime.now()
+)
+
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
+# RETURN AT 11:50 EST
