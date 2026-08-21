@@ -25,5 +25,19 @@
 ---
 """
 
-def fizz_buzz():
-    pass
+
+def fizz_buzz(number):
+  # go through all numbers up to and including target number
+  for num in range(1, number + 1):
+    # if divisible by both --> "Fizz Buzz"
+    if (num % 3 == 0 and num % 5 == 0):
+      print("Fizz Buzz")
+    # if divisible by 3 --> "Fizz"
+    elif (num % 3 == 0):
+      print("Fizz")
+    # if divisible by 5 --> "Buzz"
+    elif (num % 5 == 0):
+      print("Buzz")
+    # otherwise print the original number
+    else:
+      print(num)

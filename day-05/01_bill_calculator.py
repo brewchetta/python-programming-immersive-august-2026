@@ -14,5 +14,7 @@ Let's imagine we're going out to eat at a restaurant; we just had a good meal an
 ---
 """
 
-def calculate_bill():
-    pass
+def calculate_bill(price_of_food:float, amount_tipped:int):
+    tax_rate = 0.0875
+    taxes = price_of_food * tax_rate
+    return price_of_food + taxes + amount_tipped

@@ -7,11 +7,26 @@
 
 **OUTPUT:** `"uryyb gurer"`
 
+a - 97 + 13
+z - 122 + 13
+
+
 ---
 """
 
-def rot_13():
-    pass
+def rot_13(string:str):
+    result = ""
+    for character in string.lower():
+        character_code = ord(character)
+        if (character_code > 123 or character_code < 97):
+            result += character
+        elif (character_code >= 110):
+            new_char_code = character_code - 13
+            result += chr(new_char_code)
+        else:
+            new_char_code = character_code + 13
+            result += chr(new_char_code)
+    return result
 
 
 """
